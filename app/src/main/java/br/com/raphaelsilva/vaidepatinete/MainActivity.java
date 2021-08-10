@@ -1,6 +1,8 @@
 package br.com.raphaelsilva.vaidepatinete;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -19,6 +21,9 @@ public class MainActivity extends AppCompatActivity {
     private TextView textEconomia;
     private Button btCalcular;
     private Button btLimpar;
+    private Button btCombustao;
+    private Button btEletricos;
+    private Button btAmbiente;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,6 +39,34 @@ public class MainActivity extends AppCompatActivity {
         textLitros = findViewById(R.id.textLitros);
         btCalcular = findViewById(R.id.btCalcular);
         btLimpar = findViewById(R.id.btLimpar);
+
+        btCombustao = findViewById(R.id.btCombustao);
+        btEletricos = findViewById(R.id.btEletricos);
+        btAmbiente = findViewById(R.id.btAmbiente);
+
+        btCombustao.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), CombustaoActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        btEletricos.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), EletricosActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        btAmbiente.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), AmbienteActivity.class);
+                startActivity(intent);
+            }
+        });
 
         btLimpar.setOnClickListener(new View.OnClickListener() {
             @Override
